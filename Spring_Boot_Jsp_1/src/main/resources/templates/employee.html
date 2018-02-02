@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Index</title>
+</head>
+<body>
+	<div>
+		<h1 th:text="${title}" align="center" style="color: blue;"></h1>
+	</div>
+	<hr></hr>
+	<div align="center">
+		<table>
+			<tr>
+				<td><label style="background-color:green;color: white;">Employee Id : </label></td>
+				<td th:text="${employee.eid}"></td>
+			</tr>
+			<tr>
+				<td><label style="background-color:green;color: white;">Employee Name : </label></td>
+				<td th:text="${employee.name}"></td>
+			</tr>
+			<tr>
+				<td><label style="background-color:green;color: white;">Employee Designation : </label></td>
+				<td th:text="${employee.designation}"></td>
+			</tr>
+		</table>
+		<br></br>
+		<a href="http://localhost:9091/employee/">Back to Employee List</a>
+	</div>
+</body>
+</html>
