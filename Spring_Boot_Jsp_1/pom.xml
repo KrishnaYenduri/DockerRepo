@@ -57,7 +57,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>pringBoot-Jsp-App</finalName>
+		<finalName>SpringBoot-Jsp-App</finalName>
 	</build>
 
 
