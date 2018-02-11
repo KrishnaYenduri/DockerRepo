@@ -1,35 +1,86 @@
 package com.spring.data.practice.controller;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-@Controller
-@RequestMapping(value = "/employee")
+import com.spring.data.practice.employee.model.Employee;
+import com.spring.data.practice.service.EmployeeServiceImpl;
+
+@Named
+@RequestMapping(value = "/employees")
 public class EmployeeController {
 
-	static List<Employee> employees = new ArrayList<Employee>();
+	private final String UPLOAD_FOLDER = "F:\\IMAGES\\";
+
+	@Inject
+	private EmployeeServiceImpl empService;
+
+	private boolean sortById = false;
+	private boolean sortByName = false;
+
+	@GetMapping("/upload")
+	public String listUploadedFiles(Model model) throws IOException {
+		return "uploadimage";
+	}
+
+	@PostMapping("/upload")
+	public String handleFileUpload(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+		byte[] bytes = file.getBytes();
+		Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+		Files.write(path, bytes, StandardOpenOption.CREATE);
+		model.addAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
+		return "success";
+	}
 
 	@RequestMapping(value = "")
 	public String getAllEmployeeDetails(Model model) {
+		List<Employee> employees = empService.getAllEmployeeDetails();
 		model.addAttribute("empList", employees);
 		model.addAttribute("title", "SPRING BOOT VIEW");
 		return "index";
 	}
 
-	@RequestMapping(value = "/getEmpById/{eid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/sortById")
+	public String getAllEmployeeSortById(Model model) {
+		this.sortById = !sortById;
+		List<Employee> employees = empService.getAllEmployeesSortById(sortById);
+		model.addAttribute("empList", employees);
+		model.addAttribute("title", "SPRING BOOT VIEW");
+		return "index";
+	}
+
+	@RequestMapping(value = "/sortByName")
+	public String getAllEmployeeSortByName(Model model) {
+		this.sortByName = !sortByName;
+		List<Employee> employees = empService.getAllEmployeesSortByName(sortByName);
+		model.addAttribute("empList", employees);
+		model.addAttribute("title", "SPRING BOOT VIEW");
+		return "index";
+	}
+
+	@RequestMapping(value = "/{eid}", method = RequestMethod.GET)
 	public String getEmployeeById(Model model, @PathVariable int eid) {
-		for (Employee e : employees) {
-			if (e.getEid() == eid) {
-				model.addAttribute("employee", e);
-			}
-		}
+		Employee employee = empService.getEmployeeById(eid);
+		model.addAttribute("employee", employee);
 		model.addAttribute("title", "SPRING BOOT VIEW");
 		return "employee";
 	}
@@ -41,10 +92,27 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addEmployee(@RequestParam int eid, @RequestParam String name, @RequestParam String designation) {
-		Employee employee = new Employee(eid, name, designation);
-		employees.add(employee);
-		return "redirect:";
+	public String addEmployee(@RequestParam("file") MultipartFile file, @RequestParam String name,
+			@RequestParam String designation, Model model) {
+		Employee employee = new Employee();
+		employee.setName(name);
+		employee.setDesignation(designation);
+		String status = empService.addEmployee(employee);
+		byte[] bytes;
+		try {
+			bytes = file.getBytes();
+			Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+			Files.write(path, bytes, StandardOpenOption.CREATE);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
+		if (status.equalsIgnoreCase("SUCCESS")) {
+			return "success";
+		} else {
+			return "error";
+		}
 	}
 
 }

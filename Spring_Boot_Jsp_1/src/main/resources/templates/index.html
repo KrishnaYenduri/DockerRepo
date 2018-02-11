@@ -23,11 +23,15 @@
 				<td th:text="${employee.eid}"></td>
 				<td th:text="${employee.name}"></td>
 				<td th:text="${employee.designation}"></td>
-				<td><a th:href="@{'http://localhost:9091/employee/getEmpById/'+${employee.eid}}">View Details</a></td>
+				<td><a th:href="@{'http://localhost:9091/employees/'+${employee.eid}}">View Details</a></td>
+			</tr>
+			<tr>
+				<th><a href="http://localhost:9091/employees/add">Add Employee</a></th>
+				<th><a href="http://localhost:9091/employees/sortById">Sort By Id</a></th>
+				<th><a href="http://localhost:9091/employees/sortByName">Sort By Name</a></th>
 			</tr>
 		</table>
 		<br></br>
-		<th><a href="http://localhost:9091/employee/add">Add Employee</a></th>
 	</div>
 	
 	

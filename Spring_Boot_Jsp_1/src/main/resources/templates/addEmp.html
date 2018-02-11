@@ -10,12 +10,8 @@
 	</div>
 	<hr></hr>
 	<div align="center">
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<table>
-				<tr>
-					<td><label>Employee Id : </label></td>
-					<td><input type="text" name="eid" /></td>
-				</tr>
 				<tr>
 					<td><label>Employee Name : </label></td>
 					<td><input type="text" name="name" /></td>
@@ -23,6 +19,10 @@
 				<tr>
 					<td><label>Employee Designation : </label></td>
 					<td><input type="text" name="designation" /></td>
+				</tr>
+				<tr>
+					<td>File to upload:</td>
+					<td><input type="file" name="file" /></td>
 				</tr>
 				<tr>
 					<td colspan="1">
