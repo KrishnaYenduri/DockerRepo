@@ -5,15 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.security.Principal;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,10 +50,13 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "")
-	public String getAllEmployeeDetails(Model model) {
+	public String getAllEmployeeDetails(Model model, Principal principal) {
 		List<Employee> employees = empService.getAllEmployeeDetails();
 		model.addAttribute("empList", employees);
 		model.addAttribute("title", "SPRING BOOT VIEW");
+		if(principal != null && principal.getName()!= null) {
+			model.addAttribute("userName", principal.getName());
+		}
 		return "index";
 	}
 
