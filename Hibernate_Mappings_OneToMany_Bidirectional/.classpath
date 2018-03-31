@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/ehcache-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-c3p0-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-core-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-ehcache-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-entitymanager-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-envers-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-infinispan-4.1.8.Final-tests.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-infinispan-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/hibernate-proxool-4.1.8.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/infinispan-core-5.2.0.Beta3.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jboss-logging-3.1.1.GA.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jboss-marshalling-1.3.15.GA.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jboss-marshalling-river-1.3.15.GA.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/jgroups-3.2.0.CR1.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/proxool-0.8.3.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/rhq-pluginAnnotations-3.0.4.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/stax2-api-3.1.1.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/staxmapper-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="/Hibenate_Mappings_ManyToOne/lib/woodstox-core-asl-4.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

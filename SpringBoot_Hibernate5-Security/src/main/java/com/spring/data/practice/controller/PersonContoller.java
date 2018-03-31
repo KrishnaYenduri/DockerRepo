@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.data.practice.dao.PersonDao;
 import com.spring.data.practice.entity.Person;
 
-@RestController("/")
+@RestController
+@RequestMapping("/person")
 public class PersonContoller {
 
 	@Autowired
